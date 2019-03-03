@@ -52,19 +52,17 @@ with open(csvpath, newline='') as csvfile:
         
     average_change = round(total_change/(total_months-1),2)
 
+    #Write output to Text file
+prints = 0
+while prints < 2:
+    if prints == 1:
+        import sys
+        f = open('PyBank_summary.txt', 'w')
+        sys.stdout = f
     print(f"Total Months {str(total_months)}")
     print(f"Total Profit/Loss {str(total_pl)}")
     print(f"Average Change $ {str(average_change)}")
     print(f"Greatest Increase in Profits: {greatest_profit_inc_pd}  ($ {str(greatest_profit_inc)} )")
     print(f"Greatest Decrease in Profits: {greatest_profit_dec_pd}  ($ {str(greatest_profit_dec)} )")
-
-#Write output to Text file
-
-import sys
-with open('budget_summary.txt', 'w') as f:
-    sys.stdout = f
-    print(f"Total Months {str(total_months)}")
-    print(f"Total Profit/Loss {str(total_pl)}")
-    print(f"Average Change $ {str(average_change)}")
-    print(f"Greatest Increase in Profits: {greatest_profit_inc_pd}  ($ {str(greatest_profit_inc)} )")
-    print(f"Greatest Decrease in Profits: {greatest_profit_dec_pd}  ($ {str(greatest_profit_dec)} )")
+    
+    prints += 1
